@@ -1,0 +1,33 @@
+package com.supinfo.suptravel.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
+import com.supinfo.suptravel.bean.User;
+
+public class TripbagDAO {
+
+	public void addUser(String name, String lastname, String password, String email,int studentid, String campus) {
+		EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+    	try {
+            entityManager.getTransaction().begin();
+            User user = new User();
+            user.setName(name);
+            user.setLastname(lastname);
+            entityManager.persist(user);
+        	entityManager.flush();
+            entityManager.getTransaction().commit();
+            System.out.println("\n\n Details Added \n");
+ 
+        } catch (Exception e) {
+        	entityManager.getTransaction().rollback();
+            System.out.println(e.getMessage());
+            System.out.println("error");
+            throw e;
+        }
+ 
+    }
+}

@@ -1,0 +1,26 @@
+package com.supinfo.suptravel.bean;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Table(name="trip")
+public class Tripbag {
+	@Id
+	@GeneratedValue
+	private int id;
+	@ManyToOne
+	private final Set<User> users = new HashSet<User>();
+	public boolean addUser(User user) {
+        return extracted(user).add(user);
+    }
+
+	private Set<User> extracted(User user) {
+		return (Set<User>) user;
+	}
+
+    public Set<User> getUser() {
+        return users;
+    }
+}

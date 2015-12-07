@@ -1,0 +1,18 @@
+1449337656886	Convert local variable 'session' to field
+1449337675380	Encapsulate field 'session'
+1449340746919	Delete element
+1449340765737	Move 25 resources to 'lib'
+1449402083161	Rename resource 'index.jsp'
+1449402548240	Delete element
+1449404450781	Delete element
+1449404970564	Encapsulate field 'studentid'
+1449404990962	Encapsulate field 'campus'
+1449405016721	Encapsulate field 'Name'
+1449405135226	Encapsulate field 'lastname'
+1449409214226	Delete element
+1449411208808	Delete element
+1449414412235	Delete element
+1449429383617	Delete element
+1449429482538	Delete element
+1449441280193	Delete element
+1449442544576	Rename resource 'NewFile.jsp'

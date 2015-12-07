@@ -1,0 +1,86 @@
+package com.supinfo.suptravel.bean;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "usr")
+public class User {
+	@Id
+	@GeneratedValue
+	private int id;
+	@Basic(optional = false)
+	@Column(name = "name", length = 200, nullable = false, unique = true)
+    private String name;
+	@Basic(optional = false)
+	@Column(name = "lastname", length = 200, nullable = false, unique = true)
+    private String lastname;
+	@Basic(optional = false)
+	@Column(name = "pass", length = 200, nullable = false, unique = true)
+    private String password;
+	@Basic(optional = false)
+	@Column(name = "email", length = 200, nullable = false, unique = true)
+    private String email;
+	@Basic(optional = false)
+	@Column(name = "studentid", length = 6, nullable = false, unique = true)
+    private int studentid;
+	@Basic(optional = false)
+	@Column(name = "campus",  lenght = 100, nullable = false, unique = true)
+    private String campus;
+ 
+    public int getId() {
+        return id;
+    }
+ 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}  
+	
+    public String getPassword() {
+        return password;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+ 
+    public String getEmail() {
+        return email;
+    }
+ 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+	public String getStudentid() {
+		return studentid;
+	}
+
+	public void setStudentid(String studentid) {
+		this.studentid = studentid;
+	}
+
+	public String getCampus() {
+		return campus;
+	}
+
+	public void setCampus(String campus) {
+		this.campus = campus;
+	}
+
+}
