@@ -1,51 +1,77 @@
 package com.supinfo.suptravel.bean;
 
+import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
+
+/**
+ * The persistent class for the trip database table.
+ * 
+ */
 @Entity
 @Table(name="trip")
-public class Trip {
+public class Trip implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
 	private int id;
-	
-	public int getId() {
-		return id;
+
+	private String campus;
+
+	private String tripname;
+
+	//bi-directional many-to-one association to Tripbag
+	@OneToMany(mappedBy="tripBean")
+	private List<Tripbag> tripbags;
+
+	public Trip() {
 	}
+
+	public int getId() {
+		return this.id;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	@Basic(optional = false)
-	@Column(name = "tripname", length = 200, nullable = false, unique = true)
-    private String tripname;
-
-	public String getTripname() {
-		return tripname;
-	}
-	public void setTripname(String tripname) {
-		this.tripname = tripname;
-	}
-	
-	@Column(name = "campus", length = 200, nullable = false, unique = true)
-    private String campus;
 
 	public String getCampus() {
-		return campus;
+		return this.campus;
 	}
+
 	public void setCampus(String campus) {
 		this.campus = campus;
 	}
-	
-	
-////	Relation n:1 with Campus
-//	@ManyToOne(cascade = "campus")
-//	private Set<Campus> campus = new HashSet<Campus>();
-//	public boolean addCampus(Campus camp) {
-//        return campus.add(camp);
-//    }
-//
-//    public Set<Campus> getCampus() {
-//        return campus;
-//    }
+
+	public String getTripname() {
+		return this.tripname;
+	}
+
+	public void setTripname(String tripname) {
+		this.tripname = tripname;
+	}
+
+	public List<Tripbag> getTripbags() {
+		return this.tripbags;
+	}
+
+	public void setTripbags(List<Tripbag> tripbags) {
+		this.tripbags = tripbags;
+	}
+
+	public Tripbag addTripbag(Tripbag tripbag) {
+		getTripbags().add(tripbag);
+		tripbag.setTripBean(this);
+
+		return tripbag;
+	}
+
+	public Tripbag removeTripbag(Tripbag tripbag) {
+		getTripbags().remove(tripbag);
+		tripbag.setTripBean(null);
+
+		return tripbag;
+	}
+
 }

@@ -7,9 +7,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import com.supinfo.suptravel.bean.Trip;
+import com.supinfo.suptravel.bean.User;
 
 public class TripDAO {
 
+    public void addTrip(String name, String campus) {
+		EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+    	try {
+            entityManager.getTransaction().begin();
+            Trip trip = new Trip();
+            trip.setTripname(name);
+            trip.setCampus(campus);
+            entityManager.persist(trip);
+        	entityManager.flush();
+            entityManager.getTransaction().commit();
+            System.out.println("\n\n Details Added \n");
+ 
+        } catch (Exception e) {
+        	entityManager.getTransaction().rollback();
+            System.out.println(e.getMessage());
+            System.out.println("error");
+            throw e;
+        }
+ 
+    }
     public Long getNumberTrip() {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
         Long countuser = (Long) entityManager.createQuery("select count (id) from Trip").getSingleResult();
@@ -34,7 +55,7 @@ public class TripDAO {
     public Trip getTripObject(String name) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	try {
-	        Trip info = (Trip)entityManager.createQuery("select u from User u where tripname=:name").setParameter("name",name).getSingleResult();
+	        Trip info = (Trip)entityManager.createQuery("select t from Trip t where tripname=:name").setParameter("name",name).getSingleResult();
 	        System.out.println("HERE INFO"+info+"-----------------------------------------------------\n");
 	        return info;
     	} catch (Exception e) {

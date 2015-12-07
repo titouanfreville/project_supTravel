@@ -30,8 +30,8 @@ public class LoginServlet extends HttpServlet {
         System.out.println(id);
         if (!(id < 0)) {
         	Cookie sid = new Cookie("user_id",Integer.toString(id));
-            response.sendRedirect("member_index.jsp");
             response.addCookie(sid);
+            response.sendRedirect("member_index.jsp");
         } else {
         	response.sendRedirect("login_failed.jsp");
         }

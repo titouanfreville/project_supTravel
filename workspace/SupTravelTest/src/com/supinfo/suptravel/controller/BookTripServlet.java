@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.supinfo.suptravel.bean.Trip;
 import com.supinfo.suptravel.bean.User;
 import com.supinfo.suptravel.dao.TripDAO;
+import com.supinfo.suptravel.dao.TripbagDAO;
 import com.supinfo.suptravel.dao.UserDAO;
 
 /**
@@ -50,8 +51,10 @@ public class BookTripServlet extends HttpServlet {
 		        		int id = Integer.parseInt(c.getValue());
 		        		User u = udao.getUserObject(id);
 		        		Trip t = tdao.getTripObject(triptobook);
+		        		TripbagDAO bag = new TripbagDAO();
+		        		bag.bookTrip(t, u);
 		        	} 
-		        	if (c.getName() == null || !(c.getName().equals("user_id"))) {
+		        	if (c.getName() == null) {
 		        		response.sendRedirect("notconnected.jsp");
 		        	} 
 		        }
