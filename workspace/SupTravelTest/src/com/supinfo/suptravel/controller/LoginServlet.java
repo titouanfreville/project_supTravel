@@ -35,10 +35,10 @@ public class LoginServlet extends HttpServlet {
         	session.setAttribute("user_id", id);
         	System.out.println(session.getAttribute("user_id"));
             response.addCookie(sid);
-            response.sendRedirect("connected/member_index.jsp");
+            response.sendRedirect("connected/index.jsp");
         } else {
         	session.setAttribute("user_id", null);
-        	response.sendRedirect("login_failed.jsp");
+        	response.sendRedirect("/index.jsp");
         }
 	}
 

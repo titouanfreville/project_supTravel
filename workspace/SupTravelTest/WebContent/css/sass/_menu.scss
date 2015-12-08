@@ -1,0 +1,271 @@
+.headercontainer {
+
+  @include display-flex;
+  @include flex-direction(column);
+  overflow: hidden;
+  overflow: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: white;
+
+  .header {
+
+    @include display-flex;
+    @include flex-direction(column);
+    background: $menubackground fixed no-repeat;
+
+    .band {
+      @include display-flex;
+      @include flex-direction(normal);
+      @include justify-content(space-between);
+      @include align-items(center);
+      width: 100%;
+
+      &:last-of-type {
+        @include align-items(flex-start);
+      }
+    }
+
+    /* ----------- Banner cie name ---------------------------------- */
+    .ciename {
+      @include display-flex;
+      @include flex-direction(column);
+      @include justify-content(center);
+      width: 80%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      h1 {
+        font-size: $main-title-font-size;
+        font-family: $main-title-font-family;
+        margin: 10px;
+        padding: 0.7rem;
+        color: $main-title-color;
+      }
+
+      h2 {
+        font-size: $main-subtitle-font-size;
+        font-family: $main-subtitle-font-family;
+        text-align: center;
+        margin: 10px;
+        padding: 0.5rem;
+        color:$main-title-color;
+      }
+
+      span {
+        font-family: $header-span-font-family;
+        color: $header-span-color;
+        font-size: 1.1rem;
+        text-align: right;
+        padding-right: 10%;
+      }
+    }
+
+    /* -------------------------- Cie logo and link to index -------------------------- */
+    .logo {
+      @include display-flex;
+      // @include flex(1);
+      // position: fixed;
+      height: 204px;
+      width: 20%;
+      top:0;
+      left:0;
+      background: $logo no-repeat center center;
+      background-color: transparent;
+      background-size: contain;
+      margin: 0 0 0 10px;
+    }
+
+    /* --------------------------- Phone and address based ---------------------*/
+    .bannercontact {
+      @include flex-direction(normal);
+      @include align-items(flex-start);
+      @include justify-content(space-around);
+      text-align: center;
+      width:20%;
+      font-family: $header-contact-font-family;
+      .phone {
+        @include display-flex();
+        @include flex-direction(normal);
+        @include justify-content(center);
+        @include align-items(center);
+
+        span {
+          @include display-flex();
+          @include align-items(center);
+          color: $header-span-color;
+          font-size: 0.9rem;
+          text-align: right;
+          padding: 10px;
+          padding-left: 0;
+        }
+
+        .img{
+          background: $phone no-repeat center center;
+          background-size: contain;
+          width: 20px;
+          height: 20px;
+          margin: 5px;
+          padding: 0;
+        }
+      }
+      .address{
+        @include display-flex();
+        @include justify-content(space-around);
+        @include flex-direction(column);
+        color: $header-span-color;
+        font-size: 0.9rem;
+        padding: 0;
+        margin:0;
+
+        .street {
+          text-align: center;
+        }
+        .cp {
+          @include display-flex();
+          @include justify-content(center);
+
+            span {
+              @media (min-width: 1010px) {
+                padding: 0 24px;
+              }
+              padding: 0 10%;
+            }
+        }
+      }
+    }
+
+    /* -------------------------- Menu ---------------------------------------- */
+    .menu {
+      top: 203px;
+      min-height: 35px;
+      left:235px;
+      width: 80%;
+
+      .container {
+        @include display-flex;
+        @include flex(1);
+        @include justify-content(center);
+        font-size: 1.5rem;
+        vertical-align: middle;
+        padding: 10px;
+        width: 100%;
+
+        // .ahover {
+        //   @include display-flex;
+        //   @include flex(1);
+        //   @include justify-content(center);
+        //   // vertical-align: middle;
+        //   padding: 0;
+        //   margin: 0;
+        //   width: 100%;
+        //   max-height: 40px;
+        //   &:hover {
+        //     background-color: $menu-link-highlight;
+        //     @include border-radius(4px);
+        //     @include background-image(linear-gradient(top, $menu-link-highlight-start 0%, $menu-link-highlight-end 100%));
+        //      @include box-shadow($menu-shadow-highlight 0 1px 0);
+        //    }
+        // }
+
+        a {
+          padding-left: 30px;
+          background-image: $cactus-green;
+          background-size: contain;
+          background-position: left bottom;
+          background-repeat: no-repeat;
+
+          &:hover{
+            background-image: $cactus-black;
+          }
+        }
+
+        ul {
+          @include display-flex;
+          @include flex-direction(normal);
+          @include justify-content(space-around);
+          width: 100%;
+          min-height: 1ex;
+
+          li {
+            @include display-flex;
+            @include flex-direction(column);
+            @include justify-content(center);
+            text-align: center;
+            font-family: $menu-fonts-family-lv0;
+            color: $menu-lv0-color;
+            border: 1px $menu-lv0-border-style $menu-lv0-border-color;
+            min-width: 140px;
+            padding: 5px;
+            @include border-radius(4px);
+            min-height: 1ex;
+            max-height: 20px;
+
+            ul {
+              position: relative;
+              @include flex-direction(column);
+              @include justify-content(flex-start);
+
+              li {
+                border: none;
+                min-height: 15px;
+                height: 30px;
+                padding: 5px;
+                position: relative;
+
+                ul {
+                  position: absolute;
+                  left: 230px;
+                  padding: 0 10px;
+                  top: 0;
+                  li {
+                    position: relative;
+                    border: 1px $menu-lv0-border-style $menu-lv0-border-color;
+                    min-height: 15px;
+                  }
+                  display: none;
+                }
+              }
+              &:first-child {
+                padding-top:30px;
+              }
+
+              display: none;
+            }
+
+            &:hover {
+
+              max-height: 500px;
+
+              @media screen and (min-width:1030px) {
+                ul {
+                  @include display-flex();
+
+                  ul {
+                    display: none;
+                  }
+
+                  li {
+                    &:hover {
+                      ul {
+                        @include display-flex();
+                        @include flex-direction(column);
+
+                        li {
+                          &:hover {
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

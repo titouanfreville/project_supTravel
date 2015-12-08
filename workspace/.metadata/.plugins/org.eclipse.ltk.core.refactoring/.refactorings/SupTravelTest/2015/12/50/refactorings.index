@@ -7,3 +7,7 @@
 1449494902030	Delete element
 1449604435822	Move 8 resources to 'connected'
 1449604564201	Rename resource 'member_index.jsp'
+1449607931000	Move 'style.css' to 'css'
+1449607956665	Move 'stylesheets' to 'css'
+1449607961416	Move 'style.css' to 'stylesheets'
+1449609195064	Move 'register.jsp' to 'WebContent'
