@@ -18,7 +18,7 @@ import com.supinfo.suptravel.dao.UserDAO;
 /**
  * Servlet implementation class UserControllerServlet
  */
-@WebServlet("/Trip")
+@WebServlet("/connected/Trip")
 public class TripbycampusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HttpSession session;
