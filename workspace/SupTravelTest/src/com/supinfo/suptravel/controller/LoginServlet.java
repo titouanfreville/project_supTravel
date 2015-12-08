@@ -28,21 +28,15 @@ public class LoginServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         int id = (int) userDAO.logIn(name,password);
         System.out.println(id);
+        session=request.getSession();
         if (!(id < 0)) {
         	Cookie sid = new Cookie("user_id",Integer.toString(id));
+        	session.setAttribute("user_id", id);
             response.addCookie(sid);
             response.sendRedirect("member_index.jsp");
         } else {
         	response.sendRedirect("login_failed.jsp");
         }
-	}
-
-	public HttpSession getSession() {
-		return session;
-	}
-
-	public void setSession(HttpSession session) {
-		this.session = session;
 	}
 
 }

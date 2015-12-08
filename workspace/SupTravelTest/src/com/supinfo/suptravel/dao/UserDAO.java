@@ -1,17 +1,8 @@
 package com.supinfo.suptravel.dao;
 
-import java.util.ArrayList;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
- 
 import com.supinfo.suptravel.bean.User;
 
 public class UserDAO {
@@ -55,11 +46,11 @@ public class UserDAO {
 	        spassword = (String) entityManager.createQuery("select password from User where name=:name").setParameter("name",name).getSingleResult();
 	        System.out.println(spassword + "/////////" + password);
 	        if (spassword != null && spassword.equals(password)) {
-	        	int id = -9999;
-	        	id = (int) entityManager.createQuery("select id from User where name=:name").setParameter("name",name).getSingleResult();
+	        	int id = -99;
+	        	id = (int) entityManager.createQuery("select studentid from User where name=:name").setParameter("name",name).getSingleResult();
 	        	return id;
 	        }
-	        return -9999;
+	        return -999;
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
             System.out.println("Fatal");
