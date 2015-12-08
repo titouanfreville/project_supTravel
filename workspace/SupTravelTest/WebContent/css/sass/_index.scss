@@ -1,0 +1,50 @@
+.main {
+  // frozen properties -------------------
+  top: 0;
+  left: 0;
+  @include display-flex();
+  @include flex();
+  @include flex-direction(column);
+  @include justify-content(center);
+  margin:0;
+  height: 100%;
+  width: 100%;
+  padding: 300px 0 0;
+  font-size: 100%;
+  font-family: inherit;
+  color: inherit;
+  vertical-align: baseline;
+
+  .pagetitle {
+    @include display-flex();
+    @include justify-content(center);
+    text-align: center;
+    margin: 5px;
+    padding-bottom: 0.4em;
+
+  }
+
+  .pagecontents {
+    @include display-flex();
+    @include flex-direction(column);
+    width: 80%;
+
+    .accroche {
+      text-align: center;
+      font-size: $accroche-font-size;
+      font-style: $accroche-font-style;
+      font-weight: $accroche-font-weight;
+    }
+
+    .listindex {
+      margin: 5px;
+      padding: 0;
+    }
+
+    .description {
+      font-size: $description-font-size;
+      font-style: $description-font-style;
+      font-weight: $description-font-weight;
+    }
+  }
+}
