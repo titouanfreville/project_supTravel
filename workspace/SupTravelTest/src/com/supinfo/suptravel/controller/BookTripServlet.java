@@ -55,7 +55,11 @@ public class BookTripServlet extends HttpServlet {
 		        		bag.bookTrip(t, u);
 		        	} 
 		        	if (c.getName() == null) {
+<<<<<<< HEAD
 		        		response.sendRedirect("/index.jsp");
+=======
+		        		response.sendRedirect("index.jsp");
+>>>>>>> master
 		        	} 
 		        }
 		        try {
