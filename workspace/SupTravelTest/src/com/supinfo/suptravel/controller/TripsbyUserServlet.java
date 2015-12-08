@@ -15,7 +15,7 @@ import com.supinfo.suptravel.dao.TripbagDAO;
 /**
  * Servlet implementation class TripsbyUserServlet
  */
-@WebServlet("/TripsbyUser")
+@WebServlet("/connected/TripsbyUser")
 public class TripsbyUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Cookie[] cookie;
