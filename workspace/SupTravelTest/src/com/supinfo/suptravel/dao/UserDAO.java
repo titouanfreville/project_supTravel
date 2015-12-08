@@ -1,5 +1,7 @@
 package com.supinfo.suptravel.dao;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -39,22 +41,24 @@ public class UserDAO {
         return countuser;
     }
     
-    public int logIn(String name, String password) {
+    public ArrayList<Integer> logIn(String name, String password) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	String spassword = null;
     	try {
 	        spassword = (String) entityManager.createQuery("select password from User where name=:name").setParameter("name",name).getSingleResult();
 	        System.out.println(spassword + "/////////" + password);
 	        if (spassword != null && spassword.equals(password)) {
-	        	int id = -99;
-	        	id = (int) entityManager.createQuery("select studentid from User where name=:name").setParameter("name",name).getSingleResult();
-	        	return id;
+	        	ArrayList<Integer> res = new ArrayList<Integer>();
+	        	res.add(0,(int) entityManager.createQuery("select id from User where name=:name").setParameter("name",name).getSingleResult());
+	        	res.add(1,(int) entityManager.createQuery("select studentid from User where name=:name").setParameter("name",name).getSingleResult());
+	        	System.out.println("UserDAO   " + res.get(0)+"    " + res.get(1) + "    " + res);
+	        	return res;
 	        }
-	        return -999;
+	        return null;
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
             System.out.println("Fatal");
-            return -9999;
+            return null;
     	}
     }
     

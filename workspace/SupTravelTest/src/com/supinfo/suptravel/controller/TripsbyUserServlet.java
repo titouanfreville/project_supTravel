@@ -51,7 +51,7 @@ public class TripsbyUserServlet extends HttpServlet {
         		ArrayList<String> res = tbdao.tripByUser(id);
         		System.out.println("Shrauihruaize\n"+res+"\nazeuinhazeuiohazo\n");
         		request.setAttribute("ltrip",res);
-    			getServletConfig().getServletContext().getRequestDispatcher("/mytrips.jsp").forward(request,response);
+    			getServletConfig().getServletContext().getRequestDispatcher("/connected/mytrips.jsp").forward(request,response);
         	} 
         }
         try {

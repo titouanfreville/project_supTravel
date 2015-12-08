@@ -17,7 +17,7 @@ import com.supinfo.suptravel.dao.UserDAO;
 /**
  * Servlet implementation class BookTripServlet
  */
-@WebServlet("/BookTrip")
+@WebServlet("/connected/BookTrip")
 public class BookTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Cookie[] cookie;
@@ -55,7 +55,7 @@ public class BookTripServlet extends HttpServlet {
 		        		bag.bookTrip(t, u);
 		        	} 
 		        	if (c.getName() == null) {
-		        		response.sendRedirect("notconnected.jsp");
+		        		response.sendRedirect("index.jsp");
 		        	} 
 		        }
 		        try {
