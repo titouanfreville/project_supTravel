@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.supinfo.suptravel.bean.User;
+import com.supinfo.suptravel.dao.TripbagDAO;
 import com.supinfo.suptravel.dao.UserDAO;
 
 /**
@@ -41,27 +42,32 @@ public class EditServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Cookie[] cookie = request.getCookies();
-		UserDAO udao= new UserDAO();
+		doGet(request, response);
 		String name = request.getParameter("name");
 		String lastname = request.getParameter("lastname");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        int id = Integer.parseInt(request.getParameter("studentid"));
         String camp = request.getParameter("campus");
-		for (Cookie c : cookie) {
-			System.out.println(c);
-	       	if (c.getName() != null && c.getName().equals("user_id")) {
-	       		int id = Integer.parseInt(c.getValue());
+		UserDAO udao = new UserDAO();
+        Cookie[] cookie = request.getCookies();
+        User nu = new User();
+        nu.setCampus(camp);
+        nu.setStudentid(10);
+        nu.setEmail(email);
+        nu.setPassword(password);
+        nu.setLastname(lastname);
+        nu.setName(name);
+        System.out.println("------------------------------------------\n"+cookie+"-----------------------------------------------------------\n");
+        for (Cookie c : cookie) {System.out.println(c);
+        	if (c.getName() != null && c.getName().equals("user_id")) {
+        		int id = Integer.parseInt(c.getValue());
         		User u = udao.getUserObject(id);
-        		u.setCampus(campus);
-	       	} 
-       }
-       try {
-           
-       } catch (Exception e) {
-
-           e.printStackTrace();
-       }
+        		
+        		System.out.println("Shrauihruaize\n"+u+"\nazeuinhazeuiohazo\n");
+        		udao.Update(u,nu);
+                response.sendRedirect("edit.jsp");	
+        	} 
+        }
 	}
+
 }

@@ -1,9 +1,0 @@
-package com.supinfo.suptravel.bean;
-
-import javax.persistence.*;
-
-public class Tripbag {
-	@Basic(optional = false)
-	@Column(name = "user_ref", nullable = false, unique = true)
-    private String name;
-}
