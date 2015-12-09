@@ -43,17 +43,29 @@ public class EditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		String name = request.getParameter("name");
+		String lastname = request.getParameter("lastname");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String camp = request.getParameter("campus");
 		UserDAO udao = new UserDAO();
         Cookie[] cookie = request.getCookies();
+        User nu = new User();
+        nu.setCampus(camp);
+        nu.setStudentid(10);
+        nu.setEmail(email);
+        nu.setPassword(password);
+        nu.setLastname(lastname);
+        nu.setName(name);
         System.out.println("------------------------------------------\n"+cookie+"-----------------------------------------------------------\n");
         for (Cookie c : cookie) {System.out.println(c);
         	if (c.getName() != null && c.getName().equals("user_id")) {
         		int id = Integer.parseInt(c.getValue());
-        		System.out.println(id);
-        		User u = udao.getUserObject(id);        		
+        		User u = udao.getUserObject(id);
+        		
         		System.out.println("Shrauihruaize\n"+u+"\nazeuinhazeuiohazo\n");
-        		request.setAttribute("ltrip",u);
-    			getServletConfig().getServletContext().getRequestDispatcher("/connected/mytrips.jsp").forward(request,response);
+        		udao.Update(u,nu);
+                response.sendRedirect("edit.jsp");	
         	} 
         }
 	}

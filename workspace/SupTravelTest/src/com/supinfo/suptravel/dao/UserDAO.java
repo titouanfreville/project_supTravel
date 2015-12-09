@@ -75,4 +75,51 @@ public class UserDAO {
             return null;
     	}
     }
+    
+    public void Update(User u, User nu){
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+    	entityManager.getTransaction().begin();
+        System.out.println("In UPDATE");
+    	String n = new String();
+    	String o = new String();
+    	try {
+    		o=u.getCampus();
+    		n=nu.getCampus();
+    		if (!(n == null || (o.equals(n)))) {
+                System.out.println("In Campus");
+    			u.setCampus(n);
+    		}
+    		o=u.getEmail();
+    		n=nu.getEmail();
+    		if (!(n == null || (o.equals(n)))) {
+                System.out.println("In Email");
+    			u.setEmail(n);
+    		}
+    		o=u.getLastname();
+    		n=nu.getLastname();
+    		if (!(n == null || (o.equals(n)))) {
+                System.out.println("In LastName");
+    			u.setLastname(n);
+    		}
+    		o=u.getName();
+    		n=nu.getName();
+    		if (!(n == null || (o.equals(n)))) {
+                System.out.println("In Name");
+    			u.setName(n);
+    		}
+    		o=u.getPassword();
+    		n=nu.getPassword();
+    		if (!(n == null || (o.equals(n)))) {
+                System.out.println("In Password");
+    			u.setPassword(n);
+    		}
+        	entityManager.flush();
+            entityManager.getTransaction().commit();
+            System.out.println("End");
+    	} catch (Exception e) {
+    		System.out.println(e.getMessage());
+            System.out.println("Fatal");
+            entityManager.getTransaction().rollback();
+    	}
+    }
 }
