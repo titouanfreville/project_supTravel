@@ -1,0 +1,5 @@
+package com.supinfo.suptravel.bean;
+
+public class User {
+
+}

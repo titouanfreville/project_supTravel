@@ -1,0 +1,5 @@
+package com.supinfo.suptravel.controller;
+
+public class LoginServlet {
+
+}

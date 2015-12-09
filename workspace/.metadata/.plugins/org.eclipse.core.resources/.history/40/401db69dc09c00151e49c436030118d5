@@ -1,0 +1,45 @@
+package com.supinfo.suptravel.bean;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tripbag")
+public class Tripbag {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+//	Relation n:1 with User
+	@ManyToOne(mappedBy="users",targetEntity=User.class ,cascade=CascadeType.PERSIST)
+	@JoinColumn(name = "user", referencedColumnName = "id", nullable = true)
+	private User users;
+
+    
+    public User getUsers() {
+		return users;
+	}
+
+	public void setUsers(User users) {
+		this.users = users;
+	}
+
+	@ManyToOne(targetEntity=Trip.class ,cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "trip", referencedColumnName = "id")
+	private Trip trips;
+
+
+	public Trip getTrips() {
+		return trips;
+	}
+
+	public void setTrips(Trip trips) {
+		this.trips = trips;
+	}
+
+}

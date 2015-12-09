@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
+		<item value="683" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="469" key="DIALOG_HEIGHT"/>
+		<item value="593" key="DIALOG_X_ORIGIN"/>
+		<item value="173" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="9500" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="9500"/>
+			<item value="8081"/>
+			<item value="re"/>
+			<item value="&lt;Connector"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="323" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="422" key="DIALOG_HEIGHT"/>
+		<item value="1151" key="DIALOG_X_ORIGIN"/>
+		<item value="187" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

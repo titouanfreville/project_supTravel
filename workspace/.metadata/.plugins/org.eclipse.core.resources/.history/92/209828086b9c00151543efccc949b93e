@@ -1,0 +1,57 @@
+package com.supinfo.suptravel.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+ 
+import com.supinfo.suptravel.bean.User;
+
+public class UserDAO {
+
+    public void addUser(String name, String lastname, String password, String email,int studentid, String campus) {
+		EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+    	try {
+            entityManager.getTransaction().begin();
+            User user = new User();
+            user.setName(name);
+            user.setLastname(lastname);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setStudentid(studentid);
+            user.setCampus(campus);
+            entityManager.persist(user);
+        	entityManager.flush();
+            entityManager.getTransaction().commit();
+            System.out.println("\n\n Details Added \n");
+ 
+        } catch (Exception e) {
+        	entityManager.getTransaction().rollback();
+            System.out.println(e.getMessage());
+            System.out.println("error");
+            throw e;
+        }
+ 
+    }
+    
+    public Long getNumberUser() {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        Long countuser = (Long) entityManager.createQuery("select count (id) from User").getSingleResult();
+        entityManager.close();
+        return countuser;
+    }
+    
+    public boolean logIn(String name, String password) {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        String spassword = (String) entityManager.createQuery("select password from User where name=:name").getSingleResult();
+        if (spassword == password) {
+        	return true;
+        }
+        return false;
+    }
+}

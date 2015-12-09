@@ -1,0 +1,36 @@
+package com.supinfo.suptravel.bean;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="tripbag")
+public class Tripbag {
+	@Id
+	@GeneratedValue
+	private int id;
+//	Relation n:1 with User
+	@ManyToOne(targetEntity=UserEntity.class ,cascade=CascadeType.ALL)
+	@JoinColumn(name = "user", referencedColumnName = "id")
+	private Object users;
+	public boolean addUser(User user) {
+        return users.add(user);
+    }
+
+    public Set<User> getUser() {
+        return users;
+    }
+    
+    @ManyToOne(targetEntity=Trip.class ,cascade=CascadeType.ALL)
+    @JoinColumn(name = "trip", referencedColumnName = "id")
+	private Set<Trip> trips = new HashSet<Trip>();
+	public boolean addTrip(Trip trip) {
+        return trips.add(trip);
+    }
+
+    public Set<Trip> getTrip() {
+        return trips;
+    }
+}
