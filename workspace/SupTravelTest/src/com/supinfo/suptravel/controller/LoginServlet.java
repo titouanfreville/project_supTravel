@@ -1,6 +1,8 @@
 package com.supinfo.suptravel.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -26,23 +28,21 @@ public class LoginServlet extends HttpServlet {
 		String name = request.getParameter("name");
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAO();
-        int id = (int) userDAO.logIn(name,password);
-        System.out.println(id);
-        if (!(id < 0)) {
-        	Cookie sid = new Cookie("user_id",Integer.toString(id));
+        ArrayList<Integer> ref = userDAO.logIn(name,password);
+        if (ref != null) {
+	        int campus_id = (int) ref.get(1);
+	        int user_id = (int) ref.get(0);
+	        session=request.getSession();
+	        System.out.println(session);
+        	Cookie sid = new Cookie("user_id",Integer.toString(user_id));
+        	session.setAttribute("user_id", user_id);
+        	session.setAttribute("campus_id", campus_id);
+        	System.out.println(session.getAttribute("user_id"));
             response.addCookie(sid);
-            response.sendRedirect("member_index.jsp");
+            response.sendRedirect("connected/index.jsp");
         } else {
-        	response.sendRedirect("login_failed.jsp");
+        	session.setAttribute("user_id", null);
         }
-	}
-
-	public HttpSession getSession() {
-		return session;
-	}
-
-	public void setSession(HttpSession session) {
-		this.session = session;
 	}
 
 }

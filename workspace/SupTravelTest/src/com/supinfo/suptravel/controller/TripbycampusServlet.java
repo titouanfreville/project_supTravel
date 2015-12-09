@@ -18,7 +18,7 @@ import com.supinfo.suptravel.dao.UserDAO;
 /**
  * Servlet implementation class UserControllerServlet
  */
-@WebServlet("/Trip")
+@WebServlet("/connected/Trip")
 public class TripbycampusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HttpSession session;
@@ -34,7 +34,7 @@ public class TripbycampusServlet extends HttpServlet {
 		try {
 			ArrayList<String> ltrip = (ArrayList<String>) tdao.listTripsbyCampus(campus);
 			request.setAttribute("ltrip",ltrip);
-			getServletConfig().getServletContext().getRequestDispatcher("/tripbycampus.jsp").forward(request,response);
+			getServletConfig().getServletContext().getRequestDispatcher("/connected/tripbycampus.jsp").forward(request,response);
 		} catch (Exception e){
 			throw e;			
 		}
