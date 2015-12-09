@@ -18,7 +18,7 @@ Add Trip in bag : TO DO (/3) -> started
 
 Process order : 2/2
 
-View and edit profile : TO DO (/2)
+View and edit profile : 2/2
 
 Dao factory : 1-2/2
 
