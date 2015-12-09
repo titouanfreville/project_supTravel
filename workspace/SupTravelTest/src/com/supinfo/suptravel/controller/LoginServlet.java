@@ -42,11 +42,6 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("connected/index.jsp");
         } else {
         	session.setAttribute("user_id", null);
-<<<<<<< HEAD
-        	response.sendRedirect("/index.jsp");
-=======
-        	response.sendRedirect("index.jsp");
->>>>>>> master
         }
 	}
 
