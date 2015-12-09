@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+ 
 import com.supinfo.suptravel.bean.User;
 
 public class UserDAO {
@@ -41,24 +48,22 @@ public class UserDAO {
         return countuser;
     }
     
-    public ArrayList<Integer> logIn(String name, String password) {
+    public int logIn(String name, String password) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	String spassword = null;
     	try {
 	        spassword = (String) entityManager.createQuery("select password from User where name=:name").setParameter("name",name).getSingleResult();
 	        System.out.println(spassword + "/////////" + password);
 	        if (spassword != null && spassword.equals(password)) {
-	        	ArrayList<Integer> res = new ArrayList<Integer>();
-	        	res.add(0,(int) entityManager.createQuery("select id from User where name=:name").setParameter("name",name).getSingleResult());
-	        	res.add(1,(int) entityManager.createQuery("select studentid from User where name=:name").setParameter("name",name).getSingleResult());
-	        	System.out.println("UserDAO   " + res.get(0)+"    " + res.get(1) + "    " + res);
-	        	return res;
+	        	int id = -9999;
+	        	id = (int) entityManager.createQuery("select id from User where name=:name").setParameter("name",name).getSingleResult();
+	        	return id;
 	        }
-	        return null;
+	        return -9999;
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
             System.out.println("Fatal");
-            return null;
+            return -9999;
     	}
     }
     
@@ -73,53 +78,6 @@ public class UserDAO {
     		System.out.println(e.getMessage());
             System.out.println("Fatal");
             return null;
-    	}
-    }
-    
-    public void Update(User u, User nu){
-    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
-    	entityManager.getTransaction().begin();
-        System.out.println("In UPDATE");
-    	String n = new String();
-    	String o = new String();
-    	try {
-    		o=u.getCampus();
-    		n=nu.getCampus();
-    		if (!(n == null || (o.equals(n)))) {
-                System.out.println("In Campus");
-    			u.setCampus(n);
-    		}
-    		o=u.getEmail();
-    		n=nu.getEmail();
-    		if (!(n == null || (o.equals(n)))) {
-                System.out.println("In Email");
-    			u.setEmail(n);
-    		}
-    		o=u.getLastname();
-    		n=nu.getLastname();
-    		if (!(n == null || (o.equals(n)))) {
-                System.out.println("In LastName");
-    			u.setLastname(n);
-    		}
-    		o=u.getName();
-    		n=nu.getName();
-    		if (!(n == null || (o.equals(n)))) {
-                System.out.println("In Name");
-    			u.setName(n);
-    		}
-    		o=u.getPassword();
-    		n=nu.getPassword();
-    		if (!(n == null || (o.equals(n)))) {
-                System.out.println("In Password");
-    			u.setPassword(n);
-    		}
-        	entityManager.flush();
-            entityManager.getTransaction().commit();
-            System.out.println("End");
-    	} catch (Exception e) {
-    		System.out.println(e.getMessage());
-            System.out.println("Fatal");
-            entityManager.getTransaction().rollback();
     	}
     }
 }

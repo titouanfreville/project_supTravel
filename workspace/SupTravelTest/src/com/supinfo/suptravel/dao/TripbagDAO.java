@@ -33,8 +33,8 @@ public class TripbagDAO {
 	public ArrayList<String> tripByUser(int User) {
 		EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
         try {
-        	ArrayList<Trip> trips = (ArrayList<Trip>)entityManager.createQuery("select DISTINCT tripBean from Tripbag where user=:id").setParameter("id",User).getResultList();        
-        	ArrayList<String> res = new ArrayList<String>();
+        	ArrayList<Trip> trips = (ArrayList<Trip>)entityManager.createQuery("select DISTINCT tripBean from Tripbag where user=:id").setParameter("id",User).getResultList();
+	        ArrayList<String> res = new ArrayList<String>();
 	        for (Trip t : trips) {
 	        	res.add(t.getTripname());
 	        }

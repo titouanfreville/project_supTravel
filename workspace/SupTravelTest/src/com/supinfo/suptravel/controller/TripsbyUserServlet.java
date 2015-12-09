@@ -15,7 +15,7 @@ import com.supinfo.suptravel.dao.TripbagDAO;
 /**
  * Servlet implementation class TripsbyUserServlet
  */
-@WebServlet("/connected/TripsbyUser")
+@WebServlet("/TripsbyUser")
 public class TripsbyUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Cookie[] cookie;
@@ -51,7 +51,7 @@ public class TripsbyUserServlet extends HttpServlet {
         		ArrayList<String> res = tbdao.tripByUser(id);
         		System.out.println("Shrauihruaize\n"+res+"\nazeuinhazeuiohazo\n");
         		request.setAttribute("ltrip",res);
-    			getServletConfig().getServletContext().getRequestDispatcher("/connected/mytrips.jsp").forward(request,response);
+    			getServletConfig().getServletContext().getRequestDispatcher("/mytrips.jsp").forward(request,response);
         	} 
         }
         try {
