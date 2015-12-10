@@ -2,7 +2,7 @@
 Projet Web JavaEE - Supinfo - 3ème année module JAVA - 2015
 PLEASE DON'T PUSH DIRECTLY IN MASTER :) LET'S WORK ON A BRANCH TO KEEP MASTER CLEAN AND WORKING
 
-Currently estimate score : ~ 20/35 (will be ~24/25 with css) (taking min score)
+Currently estimate score : 24/35 (will be 27/25 with css) (taking min score)
 
 Notation : 
 
@@ -14,7 +14,7 @@ Security (register, auth, log in/out, filters) : 4/4
 
 Search trip on Connected index : 3/3
 
-Add Trip in bag : TO DO (/3) -> started
+Add Trip in bag : 3/3 (TO DO : link to acces to the cart. Optionnal have it in the header)
 
 Process order : 2/2
 
