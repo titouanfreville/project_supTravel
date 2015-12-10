@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.supinfo.suptravel.cart.TripCart;
 import com.supinfo.suptravel.dao.UserDAO;
 
 /**
@@ -32,13 +33,14 @@ public class LoginServlet extends HttpServlet {
         if (ref != null) {
 	        int campus_id = (int) ref.get(1);
 	        int user_id = (int) ref.get(0);
+        	TripCart tc = new TripCart();
+            System.out.println("TC in Login"+tc);
 	        session=request.getSession();
 	        System.out.println(session);
-        	Cookie sid = new Cookie("user_id",Integer.toString(user_id));
         	session.setAttribute("user_id", user_id);
         	session.setAttribute("campus_id", campus_id);
+        	session.setAttribute("cart", tc);
         	System.out.println(session.getAttribute("user_id"));
-            response.addCookie(sid);
             response.sendRedirect("connected/index.jsp");
         } else {
         	session.setAttribute("user_id", null);

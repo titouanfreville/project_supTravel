@@ -10,11 +10,14 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="tripbag")
+@NamedQuery(name="Tripbag.findAll", query="SELECT t FROM Tripbag t")
 public class Tripbag implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int id;
+
+	private int quantity;
 
 	//bi-directional many-to-one association to Trip
 	@ManyToOne
@@ -35,6 +38,14 @@ public class Tripbag implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getQuantity() {
+		return this.quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public Trip getTripBean() {

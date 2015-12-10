@@ -30,7 +30,7 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.invalidate();
-	    response.sendRedirect("restanes.jsp");
+	    response.sendRedirect("index.jsp");
 	}
 
 	/**
