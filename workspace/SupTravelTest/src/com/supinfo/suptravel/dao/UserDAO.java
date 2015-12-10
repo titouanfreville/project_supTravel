@@ -56,7 +56,7 @@ public class UserDAO {
 	        }
 	        return null;
     	} catch (Exception e) {
-    		System.out.println(e.getMessage());
+    		System.out.println("Exception"+e.getMessage());
             System.out.println("Fatal");
             return null;
     	}
