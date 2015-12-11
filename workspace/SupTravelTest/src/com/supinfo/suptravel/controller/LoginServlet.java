@@ -53,7 +53,6 @@ public class LoginServlet extends HttpServlet {
         	session.setAttribute("name", ref.getName());
         	session.setAttribute("lastname", ref.getLastname());
         	session.setAttribute("cart", tc);
-        	System.out.println(session.getAttribute("user_id"));
         	response.sendRedirect("connected/index.jsp");
         } else {
         	session.setAttribute("user_id", null);

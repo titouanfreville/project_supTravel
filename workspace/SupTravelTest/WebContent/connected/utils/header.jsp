@@ -48,7 +48,7 @@
 			<li>
 				<form method="post" action="Trip">
 					<label>
-						<input type="text" size="30" name="campus" placeholder="Search a trip fromm ... campus" />
+						<input type="text" size="30" name="campus" placeholder="Search a trip from ... campus" />
 					</label>
 					<input class="hidden" type="submit">
 				</form>
