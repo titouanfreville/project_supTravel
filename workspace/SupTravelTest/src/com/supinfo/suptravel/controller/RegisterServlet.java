@@ -32,8 +32,17 @@ public class RegisterServlet extends HttpServlet {
         setSession(request.getSession(true));
         try {
             UserDAO userDAO = new UserDAO();
-            userDAO.addUser(name, lastname, password, email, id, camp);
-            response.sendRedirect("Success");
+            int code = userDAO.addUser(name, lastname, password, email, id, camp);
+            if (code==0) {
+            	request.setAttribute("new_user",true);
+            	request.setAttribute("id",id);
+            	request.setAttribute("password",password);
+            	getServletConfig().getServletContext().getRequestDispatcher("/Login").forward(request,response);
+            }
+            else {
+            	request.setAttribute("id_exist",true);
+            	getServletConfig().getServletContext().getRequestDispatcher("/register.jsp").forward(request,response);
+            }
         } catch (Exception e) {
  
             e.printStackTrace();

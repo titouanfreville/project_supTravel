@@ -50,7 +50,10 @@ public class BookTripServlet extends HttpServlet {
 			TripbagDAO bag = new TripbagDAO();
 			bag.bookTrip(it.getTrip(), u, it.getQuantity() );			
 		}
-	    res.sendRedirect("TripsBooked");
+		tcart = new TripCart(); 
+		session.setAttribute("booked", true);
+		session.setAttribute("cart", tcart);
+	    res.sendRedirect("index.jsp");
 	}
 
 

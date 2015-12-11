@@ -1,3 +1,4 @@
+<%@ page language="java" import="com.supinfo.suptravel.cart.TripCart" %>
 <header>
 	<div class="banner">
 		<div class="logo"></div>
@@ -5,11 +6,27 @@
 			<h1>SupTravel</h1>
 			<h2>Trouver votre voyage, depuis votre campus.</h2>
 		</div>
+		<a href="cart.jsp">
+			<div class="cart">
+				<div class="caddie"></div>
+				<div>
+					<span>
+					<%	
+						TripCart tc = (TripCart) session.getAttribute("cart");
+						out.println("You have " + tc.getItemNumber() + " in cart.");
+					%> 
+					</span>
+				</div>
+			</div>
+			<span>Access to your cart</span>
+		</a>
 		<div class="connected">
 			<span>
 				<%
 					int id = (int) session.getAttribute("campus_id");
-					out.println("Your id :"+id);
+					String name = (String)session.getAttribute("name");
+					String lastname= (String)session.getAttribute("lastname");
+					out.println("Welcomme " + name + "-" + id + "-" + lastname);
 				%> 
 			</span>
 			<a href="edit.jsp">Edit your profile</a>

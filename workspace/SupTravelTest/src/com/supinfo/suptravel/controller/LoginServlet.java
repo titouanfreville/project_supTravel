@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.supinfo.suptravel.bean.User;
 import com.supinfo.suptravel.cart.TripCart;
 import com.supinfo.suptravel.dao.UserDAO;
 
@@ -26,22 +26,35 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-        String password = request.getParameter("password");
+		String sto = request.getParameter("id");
+		int sid;
+		if (sto == null) {
+			sid = (Integer) request.getAttribute("id");
+		} else {
+			sid = Integer.parseInt(sto);
+		}
+		
+        String pass = request.getParameter("password");
+        if (pass == null) {
+        	pass = (String) request.getAttribute("password");
+        }
+        Boolean new_user = (Boolean) request.getAttribute("new_user");
         UserDAO userDAO = new UserDAO();
-        ArrayList<Integer> ref = userDAO.logIn(name,password);
+        User ref = userDAO.logIn(sid,pass);
+        session=request.getSession();
         if (ref != null) {
-	        int campus_id = (int) ref.get(1);
-	        int user_id = (int) ref.get(0);
+	        int user_id = ref.getId();
         	TripCart tc = new TripCart();
             System.out.println("TC in Login"+tc);
-	        session=request.getSession();
 	        System.out.println(session);
+	        session.setAttribute("new_user", new_user);
         	session.setAttribute("user_id", user_id);
-        	session.setAttribute("campus_id", campus_id);
+        	session.setAttribute("campus_id", sid);
+        	session.setAttribute("name", ref.getName());
+        	session.setAttribute("lastname", ref.getLastname());
         	session.setAttribute("cart", tc);
         	System.out.println(session.getAttribute("user_id"));
-            response.sendRedirect("connected/index.jsp");
+        	response.sendRedirect("connected/index.jsp");
         } else {
         	session.setAttribute("user_id", null);
         }
