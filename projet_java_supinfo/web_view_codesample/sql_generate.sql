@@ -41,10 +41,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user` (
   `name` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `studentid` INT UNSIGNED NOT NULL,
+  `studentid` INT UNSIGNED UNIQUE NOT NULL,
   `campus` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `studentid_UNIQUE` (`studentid` ASC))
 ENGINE = InnoDB;
 
 
@@ -57,18 +58,31 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tripbag` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `trip` INT UNSIGNED NOT NULL,
   `user` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`, `trip`, `user`),
+  `quantity` INT UNSIGNED NULL,
   INDEX `fk_tripbag_user_idx` (`user` ASC),
+  INDEX `fk_tripbag_trip_idx` (`trip` ASC),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_tripbag_user`
     FOREIGN KEY (`user`)
     REFERENCES `mydb`.`user` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_tripbag_trip`
-    FOREIGN KEY (`user`)
+    FOREIGN KEY (`trip`)
     REFERENCES `mydb`.`trip` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`hibernate_sequence`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`hibernate_sequence` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`hibernate_sequence` (
+  `idhibernate_sequence` INT NOT NULL,
+  PRIMARY KEY (`idhibernate_sequence`))
 ENGINE = InnoDB;
 
 
