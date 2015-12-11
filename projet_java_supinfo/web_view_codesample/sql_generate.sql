@@ -6,11 +6,11 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_gener
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`campus`
+-- Table `campus`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`campus` ;
+DROP TABLE IF EXISTS `campus` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`campus` (
+CREATE TABLE IF NOT EXISTS `campus` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `campusname` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -19,11 +19,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`trip`
+-- Table `trip`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`trip` ;
+DROP TABLE IF EXISTS `trip` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`trip` (
+CREATE TABLE IF NOT EXISTS `trip` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `tripname` VARCHAR(45) NOT NULL,
   `campus` VARCHAR(45) NOT NULL,
@@ -32,11 +32,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user` ;
+DROP TABLE IF EXISTS `user` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
@@ -49,26 +49,39 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tripbag`
+-- Table `tripbag`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tripbag` ;
+DROP TABLE IF EXISTS `tripbag` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tripbag` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `trip` INT UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `tripbag` (
+  `id` INT UNSIGNED NOT NULL,
+  `trip` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`, `trip`, `user`),
+  `quantity` INT UNSIGNED NULL,
   INDEX `fk_tripbag_user_idx` (`user` ASC),
+  INDEX `fk_tripbag_trip_idx` (`trip` ASC),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_tripbag_user`
     FOREIGN KEY (`user`)
-    REFERENCES `mydb`.`user` (`id`)
+    REFERENCES `user` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_tripbag_trip`
-    FOREIGN KEY (`user`)
-    REFERENCES `mydb`.`trip` (`id`)
+    FOREIGN KEY (`trip`)
+    REFERENCES `trip` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `hibernate_sequence`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hibernate_sequence` ;
+
+CREATE TABLE IF NOT EXISTS `hibernate_sequence` (
+  `idhibernate_sequence` INT NOT NULL,
+  PRIMARY KEY (`idhibernate_sequence`))
 ENGINE = InnoDB;
 
 

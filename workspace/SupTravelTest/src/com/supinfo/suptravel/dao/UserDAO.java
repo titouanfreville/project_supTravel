@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import org.hibernate.exception.ConstraintViolationException;
+
 import com.supinfo.suptravel.bean.User;
 
 public class UserDAO {
 
-    public void addUser(String name, String lastname, String password, String email,int studentid, String campus) {
+    public int addUser(String name, String lastname, String password, String email,int studentid, String campus) {
 		EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	try {
             entityManager.getTransaction().begin();
@@ -24,13 +26,16 @@ public class UserDAO {
         	entityManager.flush();
             entityManager.getTransaction().commit();
             System.out.println("\n\n Details Added \n");
- 
+            return 0;
         } catch (Exception e) {
         	entityManager.getTransaction().rollback();
             System.out.println(e.getMessage());
             System.out.println("error");
-            throw e;
-        }
+        	if (e instanceof ConstraintViolationException) {
+            	return 1;
+        	}
+            return 2;
+        } 
  
     }
     
@@ -41,17 +46,15 @@ public class UserDAO {
         return countuser;
     }
     
-    public ArrayList<Integer> logIn(String name, String password) {
+    public User logIn(int s_id, String password) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	String spassword = null;
     	try {
-	        spassword = (String) entityManager.createQuery("select password from User where name=:name").setParameter("name",name).getSingleResult();
+	        spassword = (String) entityManager.createQuery("select password from User where studentid=:s_id").setParameter("s_id",s_id).getSingleResult();
 	        System.out.println(spassword + "/////////" + password);
 	        if (spassword != null && spassword.equals(password)) {
-	        	ArrayList<Integer> res = new ArrayList<Integer>();
-	        	res.add(0,(int) entityManager.createQuery("select id from User where name=:name").setParameter("name",name).getSingleResult());
-	        	res.add(1,(int) entityManager.createQuery("select studentid from User where name=:name").setParameter("name",name).getSingleResult());
-	        	System.out.println("UserDAO   " + res.get(0)+"    " + res.get(1) + "    " + res);
+	        	User res = new User();
+	        	res = (User)entityManager.createQuery("select u from User u where studentid=:s_id").setParameter("s_id",s_id).getSingleResult();
 	        	return res;
 	        }
 	        return null;

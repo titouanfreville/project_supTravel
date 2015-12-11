@@ -26,4 +26,8 @@ public class TripCart {
     {
         items.removeElementAt(itemIndex);
     }
+    
+    public int getItemNumber() {
+    	return items.size();
+    }
 }
