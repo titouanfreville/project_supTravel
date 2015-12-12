@@ -45,9 +45,23 @@ public class TripDAO {
         return listName;
     }
     
+    public List<Trip> restlistTrips() {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        List<Trip> listName = entityManager.createQuery("select t from Trip t").getResultList();
+        entityManager.close();
+        return listName;
+    }
+    
     public ArrayList<String> listTripsbyCampus(String campus) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
         ArrayList<String> listName = (ArrayList<String>) entityManager.createQuery("select tripname from Trip where campus=:campus").setParameter("campus", campus).getResultList();
+        entityManager.close();
+        return listName;
+    }
+    
+    public ArrayList<Object[]> restlistTripsbyCampus() {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        ArrayList<Object[]> listName = (ArrayList<Object[]>) entityManager.createQuery("select tripname, campus from Trip t order by campus").getResultList();
         entityManager.close();
         return listName;
     }
