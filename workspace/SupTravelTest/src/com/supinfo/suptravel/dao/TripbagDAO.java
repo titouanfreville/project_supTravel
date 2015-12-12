@@ -19,9 +19,7 @@ public class TripbagDAO {
             bag.setQuantity(quant);
             entityManager.persist(bag);
         	entityManager.flush();
-            entityManager.getTransaction().commit();
-            System.out.println("\n\n Details Added \n");
- 
+            entityManager.getTransaction().commit(); 
         } catch (Exception e) {
         	entityManager.getTransaction().rollback();
             System.out.println(e.getMessage());
@@ -38,7 +36,6 @@ public class TripbagDAO {
 
 	        return trips;
         } catch (Exception e) {
-        	System.out.println("Ca bug 1");
         	throw e;
         }
 
