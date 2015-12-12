@@ -24,9 +24,9 @@ Dao factory : 1-2/2
 
 MVC Pattern : 2-3/2
 
-Webservice list : 2-2.5/2.5)
+Webservice list : 2-2.5/2.5
 
-Webservice search : 2-2.5/2.5)
+Webservice search : 2-2.5/2.5
 
 Design : TO DO (/3)
 
