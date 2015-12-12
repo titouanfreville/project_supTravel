@@ -2,7 +2,7 @@
 Projet Web JavaEE - Supinfo - 3ème année module JAVA - 2015
 PLEASE DON'T PUSH DIRECTLY IN MASTER :) LET'S WORK ON A BRANCH TO KEEP MASTER CLEAN AND WORKING
 
-Currently estimate score : 24/35 (will be 27/25 with css) (taking min score)
+Currently estimate score : 27/35 (will be 30/25 with css) (taking min score)
 
 Notation : 
 
@@ -24,9 +24,9 @@ Dao factory : 1-2/2
 
 MVC Pattern : 2-3/2
 
-Webservice list : TO DO (/2.5)
+Webservice list : 1.5-2.5/2.5)
 
-Webservice seearch : TO DO (/2.5)
+Webservice seearch : 1.5-2.5/2.5)
 
 Design : TO DO (/3)
 
