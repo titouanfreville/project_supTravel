@@ -1,0 +1,52 @@
+.main {
+  h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  form {
+    margin: 2%;
+    @include display-flex;
+    @include flex();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    @include align-items(center);
+    height: 60%;
+    width: 100%;
+    label {
+      @include display-flex;
+      @include flex();
+      @include flex-direction(row);
+      @include justify-content(center);
+      width: 50%;
+      margin: 0.2rem;
+      span {
+        @include display-flex;
+        @include flex(1);
+        @include flex-direction(row);
+        @include justify-content(flex-end);
+        min-width: 220px;
+        margin: 0 1ex;
+      }
+      input {
+        @include display-flex;
+        @include flex(1);
+        @include flex-direction(row);
+        @include justify-content(flex-start);
+        border: 1px groove #112E3C;
+        background-color: #35586B;
+        color: inherit;
+        &:invalid:after, &:invalid:focus {
+          background-color: #A52A2A;
+        }
+        &.error {
+          background-color: #A52A2A;
+        }
+      }
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}
