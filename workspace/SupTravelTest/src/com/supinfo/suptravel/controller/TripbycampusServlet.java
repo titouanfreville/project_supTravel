@@ -27,8 +27,6 @@ public class TripbycampusServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Cookie[] cookie = request.getCookies();
-	    System.out.println("------------------------------------------\n"+cookie+"-----------------------------------------------------------\n");
 		String campus = request.getParameter("campus");
 		TripDAO tdao = new TripDAO();
 		try {
