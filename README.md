@@ -14,7 +14,7 @@ Security (register, auth, log in/out, filters) : 4/4
 
 Search trip on Connected index : 3/3
 
-Add Trip in bag : 3/3 (TO DO : link to acces to the cart. Optionnal have it in the header)
+Add Trip in bag : 3/3
 
 Process order : 2/2
 
