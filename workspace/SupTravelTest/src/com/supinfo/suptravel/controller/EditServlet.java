@@ -61,6 +61,8 @@ public class EditServlet extends HttpServlet {
 		User u = udao.getUserObject(id);
 		udao.Update(u,nu);
 		request.setAttribute("modify",true);
+    	session.setAttribute("name", name);
+    	session.setAttribute("lastname", lastname);
     	getServletConfig().getServletContext().getRequestDispatcher("/connected/edit.jsp").forward(request,response);
 
 	}
