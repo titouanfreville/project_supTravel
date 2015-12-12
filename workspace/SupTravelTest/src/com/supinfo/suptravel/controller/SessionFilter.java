@@ -53,8 +53,6 @@ public class SessionFilter implements Filter {
          * Si l'objet utilisateur n'existe pas dans la session en cours, alors
          * l'utilisateur n'est pas connecté.
          */
-        System.out.println("IN FILTER");
-        System.out.println(session.getAttribute( ATT_SESSION_USER ));
         if ( session.getAttribute( ATT_SESSION_USER ) == null ) {
             /* Redirection vers la page publique */
             response.sendRedirect( request.getContextPath() + ACCES_PUBLIC );

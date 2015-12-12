@@ -26,7 +26,7 @@
 					int id = (int) session.getAttribute("campus_id");
 					String name = (String)session.getAttribute("name");
 					String lastname= (String)session.getAttribute("lastname");
-					out.println("Welcomme " + name + "-" + id + "-" + lastname);
+					out.println("Welcome " + name + "-" + id + "-" + lastname);
 				%> 
 			</span>
 			<a href="edit.jsp">Edit your profile</a>
