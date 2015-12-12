@@ -26,7 +26,7 @@ MVC Pattern : 2-3/2
 
 Webservice list : 1.5-2.5/2.5)
 
-Webservice seearch : 1.5-2.5/2.5)
+Webservice search : 1.5-2.5/2.5)
 
 Design : TO DO (/3)
 
