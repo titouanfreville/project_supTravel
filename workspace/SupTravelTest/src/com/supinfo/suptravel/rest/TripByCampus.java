@@ -3,11 +3,15 @@ package com.supinfo.suptravel.rest;
 import java.util.List;
 import java.util.Vector;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +32,8 @@ import com.supinfo.suptravel.dao.TripDAO;
 public class TripByCampus {
 	@GET
 	@Produces("application/json")
-	public Response tripByCampus() throws JSONException {
+	public Response tripByCampus(@Context ServletContext context, @Context HttpServletRequest req) throws JSONException {
+		HttpSession session = req.getSession();
 		JSONObject global = new JSONObject();
 		JSONObject trip = new JSONObject();
 		JSONObject campus = new JSONObject();
@@ -53,7 +58,9 @@ public class TripByCampus {
 		}
 		global.put("campus", campus);
 		
-		String result = "Trip List in JSON organised by campus: \n\n" + global;
-		return Response.status(200).entity(result).build();
+		UriBuilder builder = UriBuilder.fromPath(context.getContextPath());
+		session.setAttribute("tripljson",global);
+        builder.path("/connected/index.jsp");
+		return Response.seeOther(builder.build()).build();
 	}
 } 

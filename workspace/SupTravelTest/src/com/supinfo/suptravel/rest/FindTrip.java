@@ -2,11 +2,16 @@ package com.supinfo.suptravel.rest;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,14 +33,16 @@ public class FindTrip {
 	@Path("{camp}")
 	@GET
 	@Produces("application/json")
-	public Response tripByCampus(@PathParam("camp") String camp) throws JSONException {
+	public Response tripByCampus(@PathParam("camp") String camp, @Context ServletContext context, @Context HttpServletRequest req) throws JSONException {
 		JSONObject global = new JSONObject();
 		TripDAO tdao = new TripDAO();
+		HttpSession session = req.getSession();
 		List<String> l = tdao.listTripsbyCampus(camp);
-		
 		global.put(camp, l);
-		
-		String result = "Trip List in JSON organised by campus: \n\n" + global;
-		return Response.status(200).entity(result).build();
+		UriBuilder builder = UriBuilder.fromPath(context.getContextPath());
+		session.setAttribute("tripincampus",global);
+		session.setAttribute("campsearch",camp);
+        builder.path("/connected/tripbycampus.jsp");
+		return Response.seeOther(builder.build()).build();
 	}
 } 
