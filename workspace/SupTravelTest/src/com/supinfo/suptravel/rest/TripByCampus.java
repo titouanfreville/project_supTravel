@@ -1,6 +1,7 @@
 package com.supinfo.suptravel.rest;
 
 import java.util.List;
+import java.util.Vector;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -32,6 +33,7 @@ public class TripByCampus {
 		JSONObject trip = new JSONObject();
 		JSONObject campus = new JSONObject();
 		TripDAO tdao = new TripDAO();
+		Vector<String> table = new Vector<String>();
 		List<Object[]> l = tdao.restlistTripsbyCampus();
 		
 		String cname_cur;
@@ -40,15 +42,14 @@ public class TripByCampus {
 		for (Object[] st : l) {
 			tname = (String) st[0];
 			cname_cur = (String) st[1];
-			if (cname_cur.equals(cname_old)) {
-				trip.put("trip", tname);
-			} else {
-				trip.put("trip", tname);
+			table.addElement(tname);
+			if (!(cname_cur.equals(cname_old))) {
+				trip.put("trips", table);
 				campus.put(cname_cur, trip);
 				trip = new JSONObject();
 				cname_old = cname_cur;
+				table=new Vector<String>();
 			}
-			
 		}
 		global.put("campus", campus);
 		
