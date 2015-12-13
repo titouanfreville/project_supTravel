@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
         	response.sendRedirect("rest/campus");
         } else {
         	session.setAttribute("user_id", null);
+        	response.sendRedirect("index.jsp");
         }
 	}
 

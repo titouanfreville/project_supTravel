@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 @import
   // Variables
@@ -13,7 +13,10 @@
   //"animations",
 
   // Components
-  "index";
+  "index",
+  "register",
+  "booktrip",
+  "cart";
   // "header",
   // "footer",
   // "contents",

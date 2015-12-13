@@ -3,21 +3,46 @@ header {
   @include flex-direction(column);
   @include justify-content(space-between);
   @include align-items(center);
-  height: 100%;
+  @include flex(1);
+  position: fixed;
+  top:30px;
+  left: 0;
   width: 100%;
+  height: 150px;
+  color: #b2c5c9;
+  margin: 0.5rem;
+  input {
+    border: 1px groove #f2f3f5;
+    background-color: #112E3C;
+    color: inherit;
+    &:required {
+      background-color: inherit;
+    }
+    &:invalid:after, &:invalid:focus {
+      background-color: #A52A2A;
+    }
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .banner  {
     @include display-flex;
     @include flex-direction(row);
     @include justify-content(space-between);
     @include align-items(center);
+    @include flex(1);
     width: 100%;
-    height: 90%;
     .logo {
         @include display-flex;
-        /* logo should take 25% of titles width */
+        /* logo should take 25% of titles width éstablé */
+        @include flex-direction(column);
+        @include align-self(stretch);
         @include flex(0.5);
-        min-height: 100px;
-        height: 100%;
+        background: $logo center center no-repeat;
+        background-size: contain;
     }
     .titles {
       @include display-flex;
@@ -27,14 +52,18 @@ header {
       @include flex(1);
       height: 100%;
       h1 {
+        @include flex(1);
         font-weight: bold;
-        font-size: 2rem;
-        font-color: red;
+        font-size: 4rem;
+        color: #93A6BA;
+        font-family: $main-title;
+        padding: 0.9rem;
       }
       h2 {
+        @include flex(1);
         font-style: italic;
         font-size: 1.8rem;
-        color: green;
+        font-family: $main-stitle;
       }
     }
     .connectic, .connected {
@@ -45,7 +74,7 @@ header {
       @include align-items(center);
       @include flex(0.5);
       span {
-          font-color: green;
+        padding: 0.2rem;
       }
       form {
           @include display-flex;
@@ -57,10 +86,39 @@ header {
             @include flex-direction(row);
             @include justify-content(space-between);
             @include align-items(center);
+            padding: 0.1rem;
           }
           input[type=submit], button {
             font-size: 100%;
+            color: inherit;
+            background-color: #143345;
+            border: none;
+            margin: 0 0.2rem;
           }
+      }
+    }
+    .cart {
+      @include display-flex;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(center);
+      @include flex(1);
+      .caddie {
+        @include display-flex;
+        @include flex-direction(row);
+        @include align-self(stretch);
+        @include flex(1);
+        @include flex-shrink(2);
+        background: $cart-img center center no-repeat;
+        background-size: contain;
+        max-width: 20px;
+        margin: 0 1ex 0 0;
+      }
+      span {
+        @include display-flex;
+        @include flex-direction(row);
+        @include flex(1.5);
+        margin: 0 0 0 1ex;
       }
     }
   }
@@ -104,7 +162,7 @@ header {
           @include justify-content(space-between);
           @include align-items(center);
           font-style: italic;
-          input[type="text"] {
+          input {
               @include display-flex();
               @include flex();
               @include flex-direction(row);
@@ -112,6 +170,8 @@ header {
               @include align-items(center);
               min-width: 25ex;
               width: 90%;
+              color: inherit;
+              font: inherit;
           }
         }
       }
