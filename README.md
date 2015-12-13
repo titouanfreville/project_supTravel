@@ -2,7 +2,7 @@
 Projet Web JavaEE - Supinfo - 3ème année module JAVA - 2015
 PLEASE DON'T PUSH DIRECTLY IN MASTER :) LET'S WORK ON A BRANCH TO KEEP MASTER CLEAN AND WORKING
 
-Currently estimate score : 24/35 (will be 27/25 with css) (taking min score)
+Currently estimate score : 28/35 (will be 31/25 with css) (taking min score)
 
 Notation : 
 
@@ -14,7 +14,7 @@ Security (register, auth, log in/out, filters) : 4/4
 
 Search trip on Connected index : 3/3
 
-Add Trip in bag : 3/3 (TO DO : link to acces to the cart. Optionnal have it in the header)
+Add Trip in bag : 3/3
 
 Process order : 2/2
 
@@ -24,9 +24,9 @@ Dao factory : 1-2/2
 
 MVC Pattern : 2-3/2
 
-Webservice list : TO DO (/2.5)
+Webservice list : 2-2.5/2.5
 
-Webservice seearch : TO DO (/2.5)
+Webservice search : 2-2.5/2.5
 
 Design : TO DO (/3)
 

@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import com.supinfo.suptravel.bean.Trip;
-import com.supinfo.suptravel.bean.User;
 
 public class TripDAO {
 
@@ -21,12 +20,9 @@ public class TripDAO {
             entityManager.persist(trip);
         	entityManager.flush();
             entityManager.getTransaction().commit();
-            System.out.println("\n\n Details Added \n");
- 
         } catch (Exception e) {
         	entityManager.getTransaction().rollback();
             System.out.println(e.getMessage());
-            System.out.println("error");
             throw e;
         }
  
@@ -45,9 +41,23 @@ public class TripDAO {
         return listName;
     }
     
+    public List<Trip> restlistTrips() {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        List<Trip> listName = entityManager.createQuery("select t from Trip t").getResultList();
+        entityManager.close();
+        return listName;
+    }
+    
     public ArrayList<String> listTripsbyCampus(String campus) {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
         ArrayList<String> listName = (ArrayList<String>) entityManager.createQuery("select tripname from Trip where campus=:campus").setParameter("campus", campus).getResultList();
+        entityManager.close();
+        return listName;
+    }
+    
+    public ArrayList<Object[]> restlistTripsbyCampus() {
+    	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
+        ArrayList<Object[]> listName = (ArrayList<Object[]>) entityManager.createQuery("select tripname, campus from Trip t order by campus").getResultList();
         entityManager.close();
         return listName;
     }
@@ -56,11 +66,9 @@ public class TripDAO {
     	EntityManager entityManager = Persistence.createEntityManagerFactory("SupTravel").createEntityManager();
     	try {
 	        Trip info = (Trip)entityManager.createQuery("select t from Trip t where tripname=:name").setParameter("name",name).getSingleResult();
-	        System.out.println("HERE INFO"+info+"-----------------------------------------------------\n");
 	        return info;
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
-            System.out.println("Fatal");
             return null;
     	}
     }

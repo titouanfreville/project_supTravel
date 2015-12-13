@@ -47,23 +47,18 @@ public class AddtoCartServlet extends HttpServlet {
         HttpSession session = request.getSession();
         
         String name = req.getParameter("trips");
-        System.out.println("Name in ADD TO CHART"+name);
         int quant = Integer.parseInt(req.getParameter("quant"));
-        System.out.println("Qaunt in ADD TO CHART"+quant);
         TripDAO tdao = new TripDAO();
         TripCart tc = (TripCart) session.getAttribute("cart");
         if (tc == null) {
         	tc = new TripCart();
         	session.setAttribute("cart", tc);
         }
-        System.out.println("TC in ADD TO CHART"+tc);
         Trip t = tdao.getTripObject(name);
-        System.out.println("T in ADD TO CHART"+t);
         Item it = new Item();
         
         it.setTrip(t);
         it.setQuantity(quant);
-        System.out.println("IT in ADD TO CHART"+it);
         tc.addItem(it);
         
 
