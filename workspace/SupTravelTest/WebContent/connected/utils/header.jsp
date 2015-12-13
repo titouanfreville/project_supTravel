@@ -9,14 +9,12 @@
 		<a href="cart.jsp">
 			<div class="cart">
 				<div class="caddie"></div>
-				<div>
-					<span>
-					<%	
-						TripCart tc = (TripCart) session.getAttribute("cart");
-						out.println("You have " + tc.getItemNumber() + " in cart.");
-					%> 
-					</span>
-				</div>
+				<span>
+				<%	
+					TripCart tc = (TripCart) session.getAttribute("cart");
+					out.println("You have " + tc.getItemNumber() + " in cart.");
+				%> 
+				</span>
 			</div>
 			<span>Access to your cart</span>
 		</a>
@@ -46,7 +44,7 @@
 				</form>
 			</li>
 			<li>
-				<form method="post" action="Trip">
+				<form method="post" action="FindRest">
 					<label>
 						<input type="text" size="30" name="campus" placeholder="Search a trip from ... campus" />
 					</label>
