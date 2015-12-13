@@ -2,21 +2,78 @@
 
 // Fonts ---------------------
 @charset "UTF-8";
-@font-face {
-  font-family: 'drifttype';
-  src: url('../../fonts/drifttype.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'tt';
-  src: url('../../fonts/travelingtypewriter.ttf') format('truetype');
-}
-// General definitions -------
+// @font-face {
+//   font-family: 'fontinfo';
+//   src: url('../../fonts/fontinfo.ttf') format('truetype');
+// }
+
 $fonts:                       'comic', Geneva CE, Helvetica !default;
+$ptitle-font-style:           $fonts;
+$stitle-font-style:           'splendid',$ptitle-font-style;
 $base-font-color:             #0055FF;
 
-// Header --------------------
-$main-title:                  'drifttype', $fonts;
-$main-stitle:                 'tt', $fonts;
 // Body ----------------------
-$background-img:              url(../../images/background.jpeg);
+$background-img:              url(../../images/background.png);
 $background-color:            #000;
+
+// Utilities ----------------
+$h1-font-family:             $ptitle-font-style;
+$h1-font-size:                1.7rem;
+$h1-font-weight:              bold;
+$h1-font-color:               #C60800;
+
+// List ---------------------
+
+// ---- h1 ------------------
+$h1-list-font-size:          1.5rem;
+$h1-list-font-weight:        700;
+$h1-list-font-style:         normal;
+// ---- h2 ------------------
+$h2-list-font-size:          1.3rem;
+$h2-list-font-weight:        500;
+$h2-list-font-style:         italic;
+// Index --------------------
+
+// ----- Title --------------
+
+// ----- Contents -----------
+$accroche-font-size:          1.1rem;
+$accroche-font-style:         oblique;
+$accroche-font-weight:        normal;
+
+$description-font-size:       normal;
+$description-font-style:      normal;
+$description-font-weight:     normal;
+
+// Menu & cie ---------------
+
+// Logo social network ------
+
+$background-img-ciename:     url(../../images/namebackground.png);
+$menubackground:             $background-img;
+$main-title-font-size:       3.2rem;
+$main-title-font-family:     'aerofoil',$fonts;
+$header-span-font-family:    'fontinfo',$fonts;
+$header-span-color:          #73736d;
+$main-subtitle-font-size:    2.2rem;
+$main-subtitle-font-family:  $stitle-font-style;
+$logo:                       url(../../images/logo.svg);
+$main-title-color:           #057d37;
+
+$header-contact-font-family:    'contact',$fonts;
+$phone:                      url(../../images/phone.svg);
+
+$menu-fonts-family-lv0:      'serena',$fonts;
+$menu-lv0-color:             #73736d;
+$menu-fonts-family-lv2:      $fonts;
+
+$menu-lv0-border-color:      #077f36;
+$menu-lv0-border-style:      dotted;
+
+$cactus-green:               url(../../images/cactusgreen.svg);
+$cactus-black:               url(../../images/cactusblack.svg);
+
+$menu-link-highlight:        #002FA7;
+$menu-link-highlight-start:  #0080ff;
+$menu-link-highlight-end:    #00c0ff;
+$menu-shadow-highlight:      #00c0ff;

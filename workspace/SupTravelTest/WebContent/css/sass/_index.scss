@@ -1,48 +1,26 @@
 .main {
   //Basic index styles.
-  // frozen properties ------------------
+  // frozen properties -------------------
   @include display-flex();
   @include flex-direction(column);
-  @include align-items(center);
   @include justify-content(center);
-  margin:2%;
+  margin:0;
   height: 100%;
   width: 100%;
   font-size: 100%;
   font-family: inherit;
   color: white;
   vertical-align: baseline;
-  .notconnected {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
   .stats {
     @include display-flex();
     @include flex();
     @include flex-direction(column);
     @include justify-content(center);
-    margin: 5%;
-    width: 25%;
     div {
       @include display-flex();
       @include flex();
-      @include flex-direction(row);
-      @include justify-content(space-between);
-      @include align-items(center);
-      min-width: 250px;
-      .name, .number {
-        @include display-flex();
-        @include flex();
-        @include justify-content(center);
-        margin: 5px;
-      }
-      .name {
-        font-weight: bold;
-      }
-      .number {
-        font-style: italic;
-      }
+      @include flex-direction(column);
+      @include justify-content(center);
     }
   }
   //Register Index style.
@@ -132,6 +110,9 @@
       height: 100%;
       width: 100%;
       margin: 0.5rem;
-      }
+
+    }
+
   }
+
 }

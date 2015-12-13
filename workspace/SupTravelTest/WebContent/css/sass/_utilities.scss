@@ -1,3 +1,14 @@
+h1 {
+  font-size: $h1-font-size;
+  font-family: $h1-font-family;
+  font-weight: $h1-font-weight;
+  text-align: center;
+  font-weight: bold;
+  color: $h1-font-color;
+  margin: 5px;
+  padding: 0.4rem 0 0.4rem 0;
+}
+
 a {
   min-height: 1.5ex;
   text-decoration: none;
@@ -16,22 +27,7 @@ a {
 input.nobutton[type="submit"] {
   background-color: transparent;
   border: none;
-  color: inherit;
-  font: inherit;
+  color: white;
   font-size: 100%;
   cursor: pointer;
-}
-
-input:-webkit-autofill {
-  background-color: #112E3C !important;
-  background-image: none;
-  color: #fff !important;
-}
-
-input[type=submit], button {
-  font-size: 100%;
-  color: inherit;
-  background-color: transparent;
-  border: none;
-  margin: 0 0.2rem;
 }
