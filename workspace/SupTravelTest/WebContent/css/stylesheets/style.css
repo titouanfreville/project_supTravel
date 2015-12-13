@@ -112,33 +112,35 @@ header {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  position: fixed;
+  top: 30px;
+  left: 0;
   width: 100%;
-  min-height: 150px;
-  height: 100%;
+  height: 150px;
   color: #b2c5c9;
   margin: 0.5rem;
 }
-/* line 12, ../sass/_menu.scss */
+/* line 14, ../sass/_menu.scss */
 header input {
   border: 1px groove #f2f3f5;
   background-color: #112E3C;
   color: inherit;
 }
-/* line 16, ../sass/_menu.scss */
+/* line 18, ../sass/_menu.scss */
 header input:required {
   background-color: inherit;
 }
-/* line 19, ../sass/_menu.scss */
+/* line 21, ../sass/_menu.scss */
 header input:invalid:after, header input:invalid:focus {
   background-color: #A52A2A;
 }
-/* line 23, ../sass/_menu.scss */
+/* line 25, ../sass/_menu.scss */
 header input[type=number]::-webkit-inner-spin-button,
 header input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/* line 29, ../sass/_menu.scss */
+/* line 31, ../sass/_menu.scss */
 header .banner {
   display: -webkit-box;
   display: -webkit-flex;
@@ -169,9 +171,8 @@ header .banner {
   -ms-flex: 1;
   flex: 1;
   width: 100%;
-  height: 90%;
 }
-/* line 37, ../sass/_menu.scss */
+/* line 38, ../sass/_menu.scss */
 header .banner .logo {
   display: -webkit-box;
   display: -webkit-flex;
@@ -196,10 +197,10 @@ header .banner .logo {
   -moz-flex: 0.5;
   -ms-flex: 0.5;
   flex: 0.5;
-  background: url("../../images/logo.png") center center no-repeat;
+  background: url(../../images/logo.png) center center no-repeat;
   background-size: contain;
 }
-/* line 46, ../sass/_menu.scss */
+/* line 47, ../sass/_menu.scss */
 header .banner .titles {
   display: -webkit-box;
   display: -webkit-flex;
@@ -231,7 +232,7 @@ header .banner .titles {
   flex: 1;
   height: 100%;
 }
-/* line 53, ../sass/_menu.scss */
+/* line 54, ../sass/_menu.scss */
 header .banner .titles h1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -245,7 +246,7 @@ header .banner .titles h1 {
   font-family: "drifttype", "comic", Geneva CE, Helvetica;
   padding: 0.9rem;
 }
-/* line 61, ../sass/_menu.scss */
+/* line 62, ../sass/_menu.scss */
 header .banner .titles h2 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -257,7 +258,7 @@ header .banner .titles h2 {
   font-size: 1.8rem;
   font-family: "tt", "comic", Geneva CE, Helvetica;
 }
-/* line 68, ../sass/_menu.scss */
+/* line 69, ../sass/_menu.scss */
 header .banner .connectic, header .banner .connected {
   /* connectic should take 25% of titles width */
   display: -webkit-box;
@@ -289,11 +290,11 @@ header .banner .connectic, header .banner .connected {
   -ms-flex: 0.5;
   flex: 0.5;
 }
-/* line 75, ../sass/_menu.scss */
+/* line 76, ../sass/_menu.scss */
 header .banner .connectic span, header .banner .connected span {
   padding: 0.2rem;
 }
-/* line 78, ../sass/_menu.scss */
+/* line 79, ../sass/_menu.scss */
 header .banner .connectic form, header .banner .connected form {
   display: -webkit-box;
   display: -webkit-flex;
@@ -318,7 +319,7 @@ header .banner .connectic form, header .banner .connected form {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-/* line 83, ../sass/_menu.scss */
+/* line 84, ../sass/_menu.scss */
 header .banner .connectic form label, header .banner .connectic form div, header .banner .connected form label, header .banner .connected form div {
   display: -webkit-box;
   display: -webkit-flex;
@@ -344,7 +345,7 @@ header .banner .connectic form label, header .banner .connectic form div, header
   align-items: center;
   padding: 0.1rem;
 }
-/* line 90, ../sass/_menu.scss */
+/* line 91, ../sass/_menu.scss */
 header .banner .connectic form input[type=submit], header .banner .connectic form button, header .banner .connected form input[type=submit], header .banner .connected form button {
   font-size: 100%;
   color: inherit;
@@ -353,6 +354,90 @@ header .banner .connectic form input[type=submit], header .banner .connectic for
   margin: 0 0.2rem;
 }
 /* line 100, ../sass/_menu.scss */
+header .banner .cart {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+/* line 106, ../sass/_menu.scss */
+header .banner .cart .caddie {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-self: stretch;
+  -moz-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-shrink: 2;
+  flex-shrink: 2;
+  background: url(../../images/cart.png) center center no-repeat;
+  background-size: contain;
+  max-width: 20px;
+  margin: 0 1ex 0 0;
+}
+/* line 117, ../sass/_menu.scss */
+header .banner .cart span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-flex: 1.5;
+  -webkit-flex: 1.5;
+  -moz-box-flex: 1.5;
+  -moz-flex: 1.5;
+  -ms-flex: 1.5;
+  flex: 1.5;
+  margin: 0 0 0 1ex;
+}
+/* line 125, ../sass/_menu.scss */
 header nav {
   display: -webkit-box;
   display: -webkit-flex;
@@ -385,7 +470,7 @@ header nav {
   width: 90%;
   height: 10%;
 }
-/* line 108, ../sass/_menu.scss */
+/* line 133, ../sass/_menu.scss */
 header nav ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -418,7 +503,7 @@ header nav ul {
   height: 100%;
   width: 100%;
 }
-/* line 116, ../sass/_menu.scss */
+/* line 141, ../sass/_menu.scss */
 header nav ul li {
   display: -webkit-box;
   display: -webkit-flex;
@@ -450,7 +535,7 @@ header nav ul li {
   align-items: center;
   width: 100%;
 }
-/* line 123, ../sass/_menu.scss */
+/* line 148, ../sass/_menu.scss */
 header nav ul li a {
   display: -webkit-box;
   display: -webkit-flex;
@@ -485,7 +570,7 @@ header nav ul li a {
   font-style: italic;
   color: red;
 }
-/* line 133, ../sass/_menu.scss */
+/* line 158, ../sass/_menu.scss */
 header nav ul li form {
   display: -webkit-box;
   display: -webkit-flex;
@@ -517,7 +602,7 @@ header nav ul li form {
   align-items: center;
   font-style: italic;
 }
-/* line 140, ../sass/_menu.scss */
+/* line 165, ../sass/_menu.scss */
 header nav ul li form input {
   display: -webkit-box;
   display: -webkit-flex;
@@ -627,12 +712,27 @@ input:-webkit-autofill {
 }
 
 /* line 31, ../sass/_utilities.scss */
-input[type=submit], button {
+input[type]:disabled {
+  background: transparent;
+  border: none;
+}
+
+/* line 36, ../sass/_utilities.scss */
+input[type=submit], select, button {
   font-size: 100%;
   color: inherit;
   background-color: transparent;
   border: none;
   margin: 0 0.2rem;
+}
+
+/* line 44, ../sass/_utilities.scss */
+select {
+  border: 1px groove #f2f3f5;
+}
+/* line 46, ../sass/_utilities.scss */
+select option {
+  background-color: #234254;
 }
 
 /* line 1, ../sass/_index.scss */
@@ -659,7 +759,7 @@ input[type=submit], button {
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
-  margin: 2%;
+  margin: 180px 2% 2%;
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -762,13 +862,7 @@ input[type=submit], button {
   font-style: italic;
 }
 /* line 49, ../sass/_index.scss */
-.main .triplist {
-  padding: 1.4rem;
-  width: 100%;
-  height: 100%;
-}
-/* line 53, ../sass/_index.scss */
-.main .triplist ul {
+.main .tripbox {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -787,6 +881,71 @@ input[type=submit], button {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  width: 60%;
+}
+/* line 56, ../sass/_index.scss */
+.main .tripbox .triplist {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  padding: 1.4rem;
+  height: 100%;
+}
+/* line 64, ../sass/_index.scss */
+.main .tripbox .triplist ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -801,8 +960,8 @@ input[type=submit], button {
   height: 100%;
   width: 100%;
 }
-/* line 62, ../sass/_index.scss */
-.main .triplist ul li {
+/* line 73, ../sass/_index.scss */
+.main .tripbox .triplist ul li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -832,8 +991,8 @@ input[type=submit], button {
   -moz-align-items: center;
   align-items: center;
 }
-/* line 71, ../sass/_index.scss */
-.main .trip_by_campus_form {
+/* line 82, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -863,11 +1022,10 @@ input[type=submit], button {
   -moz-align-items: center;
   align-items: center;
   height: 100%;
-  width: 100%;
   margin: 0.5rem;
 }
-/* line 80, ../sass/_index.scss */
-.main .trip_by_campus_form form {
+/* line 90, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form span {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -886,19 +1044,19 @@ input[type=submit], button {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
 }
-/* line 86, ../sass/_index.scss */
-.main .trip_by_campus_form form label {
+/* line 97, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -917,49 +1075,112 @@ input[type=submit], button {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
-}
-/* line 92, ../sass/_index.scss */
-.main .trip_by_campus_form form label span {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center;
+  width: auto;
 }
 /* line 104, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form form label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+/* line 110, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form form label span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+/* line 117, ../sass/_index.scss */
+.main .tripbox .trip_by_campus_form form label input {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+/* line 129, ../sass/_index.scss */
 .main .booktrip {
   display: -webkit-box;
   display: -webkit-flex;
@@ -993,7 +1214,7 @@ input[type=submit], button {
   width: 100%;
   margin: 0.5rem;
 }
-/* line 114, ../sass/_index.scss */
+/* line 139, ../sass/_index.scss */
 .main .booktrip .image {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1009,7 +1230,7 @@ input[type=submit], button {
   flex: 1;
   height: 100%;
 }
-/* line 119, ../sass/_index.scss */
+/* line 144, ../sass/_index.scss */
 .main .booktrip a {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1040,7 +1261,7 @@ input[type=submit], button {
   -moz-align-items: center;
   align-items: center;
 }
-/* line 126, ../sass/_index.scss */
+/* line 151, ../sass/_index.scss */
 .main .booktrip form {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1212,4 +1433,206 @@ input[type=submit], button {
 .main form label input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* line 2, ../sass/_booktrip.scss */
+.main .book {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 40%;
+}
+/* line 5, ../sass/_booktrip.scss */
+.main .book input, .main .book select {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+/* line 12, ../sass/_booktrip.scss */
+.main .book input[type="number"] {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px groove #f2f3f5;
+  background: inherit;
+  color: inherit;
+  font-size: 100%;
+}
+
+/* line 2, ../sass/_cart.scss */
+.main .cart {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 60%;
+  border: 1px solid #f2f3f5;
+}
+/* line 10, ../sass/_cart.scss */
+.main .cart h1 {
+  margin: 0.5ex;
+}
+/* line 13, ../sass/_cart.scss */
+.main .cart ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 90%;
+}
+/* line 20, ../sass/_cart.scss */
+.main .cart ul li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px groove #f2f3f5;
+  width: 100%;
+}
+/* line 28, ../sass/_cart.scss */
+.main .cart ul li:first-of-type {
+  border-top: 2px groove #f2f3f5;
+}
+/* line 31, ../sass/_cart.scss */
+.main .cart ul li:last-of-type {
+  border-bottom: 2px groove #f2f3f5;
+}
+/* line 34, ../sass/_cart.scss */
+.main .cart ul li .name {
+  border-right: 2px groove #f2f3f5;
+}
+/* line 37, ../sass/_cart.scss */
+.main .cart ul li .name, .main .cart ul li .quantity {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 5px;
 }

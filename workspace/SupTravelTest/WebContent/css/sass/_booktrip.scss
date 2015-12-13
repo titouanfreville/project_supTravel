@@ -1,0 +1,20 @@
+.main {
+  .book {
+    @include flex-direction(row);
+    width: 40%;
+    input,select {
+      @include display-flex;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(center);
+      @include flex(1);
+    }
+    input[type="number"] {
+      @include flex(1);
+      border: 1px groove #f2f3f5;
+      background: inherit;
+      color: inherit;
+      font-size: 100%;
+    }
+  }
+}
