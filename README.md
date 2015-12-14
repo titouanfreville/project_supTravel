@@ -28,7 +28,7 @@ Webservice list : 2-2.5/2.5
 
 Webservice search : 2-2.5/2.5
 
-Design : TO DO (/3)
+Design : 3/3
 
 Code Quality & Conventions: 1-2/2
 
