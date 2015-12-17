@@ -1,34 +1,12 @@
 # project_supTravel
 Projet Web JavaEE - Supinfo - 3ème année module JAVA - 2015
-PLEASE DON'T PUSH DIRECTLY IN MASTER :) LET'S WORK ON A BRANCH TO KEEP MASTER CLEAN AND WORKING
 
-Currently estimate score : 31/35 (taking min score)
+##Run the project
 
-Notation : 
+This project was not compile nore mavenised. So you will have to launch it using eclipse (or any IDE who can run apache tomcat server+java runtime), or compile it your self. 
 
-Data Structure : 1/1
-
-Index Page : 5/5
-
-Security (register, auth, log in/out, filters) : 4/4
-
-Search trip on Connected index : 3/3
-
-Add Trip in bag : 3/3
-
-Process order : 2/2
-
-View and edit profile : 2/2
-
-Dao factory : 1-2/2
-
-MVC Pattern : 2-3/2
-
-Webservice list : 2-2.5/2.5
-
-Webservice search : 2-2.5/2.5
-
-Design : 3/3
-
-Code Quality & Conventions: 1-2/2
-
+###Run on eclipse 
+-Select the project. 
+-Make sure the Server project is import.
+-If Server not import : create a Tomcat Runtime (develop with Java 8 and Tomcat 8)
+-Run the project by selecting Run on a server otpion.
